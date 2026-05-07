@@ -9,7 +9,8 @@
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: flex-start;
-	overflow-y: auto;
+	overflow-y: auto !important;
+	height: 100% !important;
 	padding: 3.2em !important;
 
 	.mediaInfoItem.mediaInfoOfficialRating {
@@ -22,7 +23,8 @@
 	}
 
 	.detailRibbon {
-		height: 60vh;
+		height: auto !important;
+		min-height: 0 !important;
 		margin-top: 0;
 		background: transparent;
 		font-size: 2.2vh;
@@ -30,6 +32,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: stretch;
+		padding-bottom: 2em;
 
 		.itemMiscInfo {
 			margin-bottom: 0 !important;
@@ -220,29 +223,28 @@
 	}
 
 	.detailSection {
-		display: grid;
-		grid-template-areas:
-			"content selector"
-			"detailGroup detailGroup"
-			"recording recording";
-		grid-template-columns: 1fr 40%;
-		gap: 2em;
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 1.5em;
+		width: 100%;
 
-		.itemDetailsGroup {
-			grid-area: detailGroup;
-		}
-
-		.recordingFields {
-			grid-area: recording;
-		}
-
-		.detailSectionContent {
-			grid-area: content;
+		& > * {
+			width: 100% !important;
+			grid-area: unset !important;
+			grid-column: unset !important;
 		}
 
 		.trackSelections {
-			grid-area: selector;
+			display: flex !important;
+			flex-direction: row !important;
+			flex-wrap: wrap;
+			gap: 1em;
 		}
+	}
+
+	#listChildrenCollapsible {
+		width: 100% !important;
+		grid-column: 1 / -1 !important;
 	}
 
 	.tagline {
@@ -257,10 +259,6 @@
 
 		.detailPagePrimaryContainer {
 			margin-top: 8.5vh;
-		}
-
-		.detailRibbon {
-			height: 43vh;
 		}
 	}
 }
@@ -282,8 +280,6 @@
 
 	&:has(.parentName a[data-type="Series"]):not(:has(.listItem)) {
 		.detailRibbon {
-			height: 60vh;
-
 			--card-width: 100%;
 
 			.detailImageContainer .card{
@@ -299,7 +295,6 @@
 
 	.detail {
 		&Ribbon {
-			height: 90vh;
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;

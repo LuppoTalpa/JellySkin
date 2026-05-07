@@ -23,13 +23,11 @@ div#reactRoot {
 }
 
 div[data-role="page"].page {
-	position: absolute;
-	overflow: hidden visible;
-	mask-image: linear-gradient(
-		to top,
-		black 1em calc(100% - 2em),
-		transparent
-	);
+	position: absolute !important;
+	overflow: hidden auto !important;
+	height: 100% !important;
+	mask-image: none !important;
+	mask-image: none !important;
 	padding: 2em 0 !important;
 
 	&#searchPage {
