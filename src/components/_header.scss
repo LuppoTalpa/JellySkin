@@ -11,8 +11,7 @@
 .layout-desktop {
 	body {
 		display: flex;
-		flex-direction: column;
-		flex-wrap: nowrap;
+		flex-flow: column nowrap;
 		overflow: hidden !important;
 	}
 }
@@ -31,12 +30,8 @@ div[data-role="page"].page {
 		black 1em calc(100% - 2em),
 		transparent
 	);
-	-webkit-mask-image: linear-gradient(
-		to top,
-		black 1em calc(100% - 2em),
-		transparent
-	);
 	padding: 2em 0 !important;
+
 	&#searchPage {
 		margin-top: 4.4em;
 	}

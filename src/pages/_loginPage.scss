@@ -2,8 +2,8 @@
 
 #loginPage {
 	mask-image: none;
-	-webkit-mask-image: none;
-	&:after {
+
+	&::after {
 		content: "";
 		width: 100vw;
 		height: 100vh;
@@ -14,6 +14,7 @@
 		background-size: cover;
 		z-index: -1;
 	}
+
 	& > div {
 		position: absolute;
 		top: 50%;
@@ -24,32 +25,40 @@
 		max-width: 50vw;
 		z-index: 2;
 	}
+
 	#divUsers {
 		flex-wrap: nowrap;
 		justify-content: flex-start;
 		overflow: auto;
+
 		.card {
 			width: 30%;
+
 			.cardBox {
 				box-shadow: none !important;
 			}
 		}
 	}
+
 	.emby-button {
 		background: transparent;
 		border: 0.2em solid;
+
 		&::after {
 			all: unset !important;
 		}
+
 		&:hover,
 		&:focus-visible {
 			background: rgb(255 255 255 / 0.2);
 		}
 	}
+
 	.checkboxOutline {
 		background: transparent !important;
 		border: 0.152em solid white !important;
 	}
+
 	.inputLabelFocused,
 	.emby-input:focus {
 		color: white !important;

@@ -4,11 +4,13 @@
 
 .emby-button {
 	position: relative;
+
 	&[is="emby-button"]:not(.emby-tab-button),
 	&.raised[is="emby-linkbutton"]:not(.emby-tab-button) {
 		background: ab.$background-dark;
 		border-radius: 100vh;
 		overflow: hidden;
+
 		&::after {
 			content: "";
 			position: absolute;
@@ -21,15 +23,18 @@
 			opacity: 0;
 			transition: opacity ab.$transition-time-fast-1 linear;
 		}
+
 		&:hover::after,
 		&:focus::after {
 			opacity: 1;
 		}
 	}
+
 	&.emby-collapsible-button {
 		box-shadow: none;
 		border: 0 !important;
 		background: transparent !important;
+
 		&::after {
 			display: none !important;
 		}
@@ -57,6 +62,7 @@
 	&:hover {
 		box-shadow: 0 0 15px black !important;
 	}
+
 	&::after {
 		content: "";
 		position: absolute;
@@ -69,15 +75,18 @@
 		opacity: 0;
 		transition: opacity ab.$transition-time-fast-1 linear;
 	}
+
 	.paper-icon-button-light {
 		z-index: 1;
 		color: white !important;
 	}
+
 	&:hover::after,
 	&:focus::after {
 		opacity: 1;
 	}
 }
+
 .dialog
 	.emby-button:not(.cardImageContainer, .actionSheetMenuItem).button-delete {
 	background: rgb(247, 0, 0) !important;

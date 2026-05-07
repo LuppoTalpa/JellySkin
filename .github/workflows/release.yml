@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint:style
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Generate release body
+        run: |
+          VERSION="${{ github.ref_name }}"
+          echo "# JellySkin ${VERSION}" > RELEASE_BODY.md
+          echo "" >> RELEASE_BODY.md
+          echo "### Quick Install" >> RELEASE_BODY.md
+          echo "\`\`\`css" >> RELEASE_BODY.md
+          echo '@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css");' >> RELEASE_BODY.md
+          echo "\`\`\`" >> RELEASE_BODY.md
+          echo "" >> RELEASE_BODY.md
+          echo "See [README](https://github.com/${{ github.repository }}/blob/${VERSION}/README.md) for full usage instructions." >> RELEASE_BODY.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "Release ${{ github.ref_name }}"
+          body_path: RELEASE_BODY.md
+          files: |
+            dist/main.css
+            dist/main.css.map
+            dist/logo.css
+            dist/logo.css.map
+          draft: false
+          generate_release_notes: true

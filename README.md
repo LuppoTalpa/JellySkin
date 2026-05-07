@@ -10,168 +10,188 @@
 > [!IMPORTANT]
 > JellySkin requires Chrome (105 and above), Edge (105 and above), Safari (15.4 and above), Firefox (121 and above), Opera (91 and above) and any other Browser supporting Baseline 23 css features to work properly
 
-- To use the JellySkin theme copy the line below into "Dashboard -> General -> Custom CSS" and click save, it will apply immediately server-wide to all users on top of any theme they may be using. To remove the theme, clear the "Custom CSS" field and then click save. <b>NOTE: Theme may not work when using Nginx Reverse Proxy. Scroll down below to learn how to fix this.
+## Method 1: Custom CSS (Dashboard)
 
-  ```css
-  @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css");
-  ```
+### Main Theme
+Copy the line below into **Dashboard → General → Custom CSS** and click save:
 
-- To enable Logos add this to custom css:
+```css
+@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css");
+```
 
-  ```css
-  @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/logo.css");
-  ```
-  
-- You can also use Jellyfin-Skin-Manager-Plugin : <https://github.com/danieladov/jellyfin-plugin-skin-manager>
-  > [!CAUTION]
-  > Jellyfin Skin Manager is not being actively maintained and might not load latest css themes
+### Logos (optional)
+```css
+@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/logo.css");
+```
+
+---
+
+## Method 2: JellyFrame Plugin (Recommended for Jellyfin 10.11+)
+
+> [!TIP]
+> JellyFrame is the modern theme management system for Jellyfin 10.11+, replacing the legacy Skin Manager plugin. It provides a GUI for theme selection, configurable variables, and addon toggles directly from the dashboard.
+
+1. Install the **File Transformation** and **JellyFrame** plugins from the Jellyfin plugin catalog
+2. Navigate to **Dashboard → JellyFrame → Themes → Marketplace**
+3. Enter this URL and click **Load Themes**:
+   ```
+   https://cdn.jsdelivr.net/gh/prayag17/JellySkin@master/themes.json
+   ```
+4. Click **Apply** on JellySkin — a configuration dialog will appear
+5. Customize accent colors, toggle addons (blur removal, horizontal My Media, etc.)
+6. Click **Save & Apply**, then hard-refresh with **Ctrl+Shift+R**
+
+---
+
+## Method 3: Skin Manager Plugin (Legacy)
+
+> [!CAUTION]
+> Jellyfin Skin Manager is not being actively maintained and might not load latest css themes. Use JellyFrame instead.
+
+---
 
 # 🧩 Addons
 
-- ## Improve Performance
+### Improve Performance
 
-- ### Remove BackdropFilter
+#### Remove BackdropFilter
+Removes the frosted glass effect from every element to improve performance.
+```css
+@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/improvePerformance/removeBackdropFilter.css");
+```
 
-  This removes the frosted glass like effect from every place and improves performance
+#### Remove Scroll Fade
+Removes the gradient fade bar at the top of scrollable containers.
+```css
+@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/improvePerformance/removeFadingScroll.css");
+```
 
-    ```css
-    @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/improvePerformance/removeBackdropFilter.css");
-    ```
+### Horizontal My Media
+Restores the horizontal section for My Media.
+```css
+@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/horizontalMyMedia.css");
+```
 
-- ### Remove scroll fade
+### Gradient Accents
+Change the default gradient accent colors. Put these imports **below** the main.css import.
 
-  This removes the gradient faded bar at top of a scrollable container
+#### Mauve
+```css
+@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/gradients/mauve.css");
+```
+![image](https://user-images.githubusercontent.com/55829513/200132732-d188392a-5642-47f7-bb62-f204a85d992e.png)
 
-    ```css
-    @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/improvePerformance/removeFadingScroll.css");
-    ```
+#### NightSky
+```css
+@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/gradients/nightSky.css");
+```
+![image](https://user-images.githubusercontent.com/55829513/200132808-5b02c8e9-29c1-4a6b-ad3c-514588cf717a.png)
 
-- ## Horizontal My Media
+#### Sea
+```css
+@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/gradients/sea.css");
+```
+![image](https://user-images.githubusercontent.com/55829513/200132840-984deaf3-c228-4092-be8f-44c325d57782.png)
 
-    Brings back the horizontal section for My Media
+#### Custom Gradient
+Override the CSS custom properties directly:
+```css
+:root {
+  --accent1-light: hsl(285, 46%, 56%);
+  --accent1-dark: hsl(285, 35%, 21%);
+  --accent1-light-opacity1: hsla(285, 46%, 56%, 0.4);
+  --accent2-light: hsl(195, 100%, 43%);
+  --accent2-dark: hsl(195, 100%, 16%);
+}
+```
 
-    ```css
-    @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/horizontalMyMedia.css");
-    ```
+### Video Theme Blur
+Applies the blur effect to video player backgrounds.
+> *Caution*: Performance intensive filter.
+```css
+@import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/videoThemeBlur.css");
+```
 
-- ## Using/Changing default gradient accent
-
-    If you want want to change the default jellyfin gradient accent to some other preset gradient use:
-    > **Note** : Remember to put gradient css files below the main.css file import. Also this won't affect the login mesh background's colors.
-    >
-    - ### Mauve
-
-      ```css
-      @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/gradients/mauve.css");
-      ```
-
-      Example:\
-      ![image](https://user-images.githubusercontent.com/55829513/200132732-d188392a-5642-47f7-bb62-f204a85d992e.png)
-
-  - ### NightSky
-
-      ```css
-      @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/gradients/nightSky.css");
-      ```
-
-      Example:\
-      ![image](https://user-images.githubusercontent.com/55829513/200132808-5b02c8e9-29c1-4a6b-ad3c-514588cf717a.png)
-
-  - ### Sea
-
-      ```css
-      @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/gradients/sea.css");
-      ```
-
-      Example:\
-      ![image](https://user-images.githubusercontent.com/55829513/200132840-984deaf3-c228-4092-be8f-44c325d57782.png)
-
-  - ### Custom
-
-      If you need to add your own gradient use:
-
-      ```css
-      :root {
-        --accent1-light: YOUR ACCENT COLOR 1(LIGHTER SHADE);
-        --accent1-dark: YOUR ACCENT COLOR 1(DARKER SHADE);
-        --accent1-light-opacity1: YOUR ACCENT COLOR 1(WITH OPACITY 0.4);
-        --accent2-light: YOUR ACCENT COLOR 2(LIGHTER SHADE);
-        --accent2-dark: YOUR ACCENT COLOR 2(DARKER SHADE);
-      }
-      ```
-- ## Add blur to video theme backgrounds
-
-    Adds the blur effect present on static backgrounds to video theme backgrounds as well.
-    *Caution*: This is a performance intensive filter and may cause considerable slowdowns on some devices.
-    If you are adding this to the serverwide Custom CSS, users can remove the effect using the *Remove Backdrop Filter* addon above.
-
-    ```css
-    @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/videoThemeBlur.css");
-    ```
+---
 
 # 💻 Screenshots
 
-- ### Login Page
-    ![Login_Page](https://github.com/prayag17/JellySkin/assets/55829513/9ca0d0c2-9ada-4e41-93b9-e4281be20d1d)
-  
-- ### Home Screen
-    ![Home page](https://github.com/prayag17/JellySkin/assets/55829513/075d844b-ca43-4f61-b54a-cb75110e77ed)
+### Login Page
+![Login_Page](https://github.com/prayag17/JellySkin/assets/55829513/9ca0d0c2-9ada-4e41-93b9-e4281be20d1d)
 
-- ### Library
-    ![Library](https://github.com/prayag17/JellySkin/assets/55829513/c3ef8e48-df17-44f0-9708-e10dfa448237)
-  
-- ### Title Screen
-    ![Title page](https://github.com/prayag17/JellySkin/assets/55829513/270bb0bb-a755-449d-a57d-9da4e31d6082)
+### Home Screen
+![Home page](https://github.com/prayag17/JellySkin/assets/55829513/075d844b-ca43-4f61-b54a-cb75110e77ed)
 
-- ### Episodes List
-    ![Episodes](https://github.com/prayag17/JellySkin/assets/55829513/eaded068-5930-47fd-b5d0-03cf89e1da44)
+### Library
+![Library](https://github.com/prayag17/JellySkin/assets/55829513/c3ef8e48-df17-44f0-9708-e10dfa448237)
+
+### Title Screen
+![Title page](https://github.com/prayag17/JellySkin/assets/55829513/270bb0bb-a755-449d-a57d-9da4e31d6082)
+
+### Episodes List
+![Episodes](https://github.com/prayag17/JellySkin/assets/55829513/eaded068-5930-47fd-b5d0-03cf89e1da44)
+
+---
 
 # ❓ Common Problem Fixes
 
-- ### Unable to see blured background in Firefox
+### Unable to see blurred background in Firefox
+From version 70: this feature is behind the `layout.css.backdrop-filter.enabled` preference (needs to be set to `true`) and the `gfx.webrender.all` preference (needs to be set to `true`). Visit `about:config` to change these.
 
-  Deaktiviert From version 70: this feature is behind the `layout.css.backdrop-filter.enabled` preference (needs to be set to true) and the `gfx.webrender.all`  preference (needs to be set to true).
-  To change preferences in Firefox, visit about:config
-  
-- ### Logos are not visible even with `logo.css`
+### Logos not visible even with `logo.css`
+1. Install the **Fanart** plugin: Dashboard → Plugins → Catalog
+2. Enable Fanart as metadata provider for your libraries: Dashboard → Library → 3 dots → Manage Library → Metadata provider
+3. Rescan your drive with **Replace Metadata** enabled
 
-  - Get Fanart Plugin, Dashboard -> Plugin -> Catalog
-  - Enable Fanart as a metadata provider for your libraries in the library settings, Dashboard -> Library -> Click on 3 dots on your Library -> Manage Library -> Scroll to find Metadata provider and enable Fanart in all of them.
-  - Rescan your drive and also enable `Replace Metadata` and scan
+### Background not visible
+Go to **Settings → Display** and enable **Backdrops**.
 
-- ### Background not visible
+### Fix for Nginx Reverse Proxy
+When using the Nginx Reverse proxy config from the [Jellyfin docs](https://jellyfin.org/docs/general/networking/nginx.html), the theme may not load due to CSP (Content Security Policy) restrictions.
 
-  - Go to Settings -> Display -> and enable `Backdrops` option
+Update your nginx config to allow the CDN URLs:
 
-- ### Fix for Nginx Reverse Proxy
+**Before:**
+```shell
+add_header Content-Security-Policy "default-src https: data: blob: http://image.tmdb.org; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com/cv/js/sender/v1/cast_sender.js https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
+```
 
-  When using the Nginx Reverse proxy config from the <a href="https://jellyfin.org/docs/general/networking/nginx.html">Jellyfin docs</a> the theme will probably not work by default. (If you are using the subpath config, you can ignore all this.)
+**After (with JellySkin):**
+```shell
+add_header Content-Security-Policy "default-src https: data: blob: http://image.tmdb.org; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/logo.css; script-src 'self' 'unsafe-inline' https://www.gstatic.com/cv/js/sender/v1/cast_sender.js https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
+```
 
-  This config includes an CSP (Content Security Policy) with headers that don't allow for loading in external content that are not defined there.
+Also add each addon URL you use to `style-src`.
 
-  In the nginx config you should add the URLs of all the CSS files you've imported through the "Custom CSS" box.
-  this:
+---
 
-  ```shell
-  add_header Content-Security-Policy "default-src https: data: blob: http://image.tmdb.org; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.gstatic.com/cv/js/sender/v1/cast_sender.js https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
-  ```
+# 🔧 Development
 
-  becomes (with only adding the default style):
+```bash
+# Install dependencies
+npm install
 
-  ```shell
-  add_header Content-Security-Policy "default-src https: data: blob: http://image.tmdb.org; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css; script-src 'self' 'unsafe-inline' https://www.gstatic.com/cv/js/sender/v1/cast_sender.js https://www.youtube.com blob:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; frame-ancestors 'self'";
-  ```
+# Build
+npm run build
 
-  If you don't do this the theme will simply not load (reverts back to default theme) and the browser console will spit out an error. Even if you paste in all the CSS, the font will still not load since it is loaded from a disallowed external source.
+# Watch + Live reload dev server
+npm start
 
-- ### How to report a Bug or request a Feature?
+# Lint SCSS
+npm run lint:style
 
-  - Go to <https://github.com/prayag17/JellySkin/issues>
-  - Click on `New Issue` button
-  - Select the appropriate template
+# Format code
+npm run format
 
-- ### How to contribute
+# Publish to npm
+npm run pub:patch   # 12.5.1 → 12.5.2
+npm run pub:minor   # 12.5.2 → 12.6.0
+npm run pub:major   # 12.6.0 → 13.0.0
+```
 
-  - Fork this repository.
-  - Add your patch/feature
-  - Create a pull request and thats it
+# 🚀 Release (GitHub Actions)
+Push a tag starting with `v` to trigger automatic build, npm publish, and GitHub release:
+```bash
+git tag v12.6.0
+git push origin v12.6.0
+```

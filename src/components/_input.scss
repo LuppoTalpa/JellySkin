@@ -1,25 +1,30 @@
 /** @format */
 
 @use "../abstract/variables" as *;
+
 // Textbox
 .inputContainer {
 	position: relative;
+
 	.inputLabel {
 		top: -1.2em;
 		font-size: 0.95em;
 		position: absolute;
 		transition: top $transition-time-default,
 			font-size $transition-time-default;
+
 		&-float:not(&Focused) {
 			font-size: 1.2em;
 			top: 0;
 		}
 	}
+
 	.emby-input {
 		background: transparent;
 		border: none;
 		border-bottom: 0.1em solid rgba(255, 255, 255, 0.7);
 		border-radius: 0 !important;
+
 		&:focus {
 			border-color: $jf-blue-light !important;
 		}
@@ -32,13 +37,16 @@
 	border: none !important;
 	border-bottom: 0.1em solid rgba(255, 255, 255, 0.7) !important;
 	border-radius: 0 !important;
+
 	&:focus {
 		border-color: $jf-blue-light !important;
 	}
 }
+
 .emby-select:focus ~ .selectArrowContainer {
 	transform: rotate(180deg);
 }
+
 .selectArrowContainer {
 	transition: transform $transition-time-fast-1;
 }
@@ -49,12 +57,12 @@
 		background-color: hsl(208deg, 89%, 20%) !important;
 		border-color: hsl(208deg, 89%, 20%) !important;
 		border-radius: 5px !important;
-		/* align-items: center; */
-		/* justify-content: center; */
 	}
 }
+
 span.checkboxLabel {
 	position: relative;
+
 	&::after {
 		content: "";
 		position: absolute;
@@ -68,9 +76,11 @@ span.checkboxLabel {
 		background-color: white;
 	}
 }
+
 .emby-checkbox:focus-visible + span.checkboxLabel::after {
 	transform: scaleX(1);
 }
+
 .checkboxIcon-checked,
 .emby-checkbox-label .checkboxIcon-checked {
 	display: block !important;
@@ -81,8 +91,8 @@ span.checkboxLabel {
 	transition: transform $transition-time-fast-1,
 		opacity $transition-time-fast-1;
 }
+
 .emby-checkbox:checked + span + .checkboxOutline > .checkboxIcon-checked {
-	display: -webkit-flex !important;
 	display: flex !important;
 	opacity: 1;
 	transform: rotate(0deg) scale(1);
@@ -95,6 +105,7 @@ span.checkboxLabel {
 	border-bottom: 0.1em solid rgba(255, 255, 255, 0.7);
 	border-radius: 0 !important;
 	width: 100%;
+
 	&:focus {
 		border-color: $jf-blue-light !important;
 	}
@@ -112,25 +123,28 @@ span.checkboxLabel {
 	overflow: hidden;
 	border-radius: $rounding-max;
 	background: transparent !important;
+
 	.listItem {
 		transition: background $transition-time-default;
 		background: rgb(0 0 0 / 0.5);
 		border: none !important;
 		border-radius: $rounding--1;
 		margin-bottom: 0.3em;
+
 		&:last-child {
 			border: none;
 			margin-bottom: 0 !important;
 		}
+
 		&:hover,
 		&:focus-visible {
 			background: rgb(0 0 0 / 0.7);
 		}
+
 		&Icon {
 			background: $gradient-default;
 			color: transparent;
 			background-clip: text;
-			-webkit-background-clip: text;
 		}
 	}
 }

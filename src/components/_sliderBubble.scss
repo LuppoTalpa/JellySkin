@@ -1,6 +1,7 @@
 /** @format */
 
 @use "../abstract/variables" as *;
+
 .sliderBubble {
 	border-radius: $rounding-max;
 	overflow: hidden;
@@ -11,8 +12,8 @@
 	background: linear-gradient(
 		to top,
 		black 0.25em,
-		rgb(0 0 0 /0.25),
+		rgb(0 0 0 / 0.25),
 		transparent
 	) !important;
-	padding: 0.5em 0.25em 0.5em !important;
+	padding: 0.5em 0.25em !important;
 }

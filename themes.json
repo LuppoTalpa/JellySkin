@@ -1,0 +1,107 @@
+[
+	{
+		"id": "jellyskin",
+		"name": "JellySkin",
+		"author": "prayag17",
+		"description": "A vibrant Jellyfin theme with glassmorphism, gradient accents, and smooth animations.",
+		"version": "12.5.1",
+		"jellyfin": "10.10+",
+		"tags": ["dark", "glassmorphism", "gradient", "animated"],
+		"previewUrl": "https://cdn.jsdelivr.net/gh/prayag17/JellySkin@master/.github/preview.png",
+		"sourceUrl": "https://github.com/prayag17/JellySkin",
+		"cssUrl": "https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css",
+		"preconnect": [
+			"https://fonts.googleapis.com",
+			"https://fonts.gstatic.com",
+			"https://cdn.jsdelivr.net"
+		],
+		"vars": [
+			{
+				"key": "ACCENT1_LIGHT",
+				"name": "Accent 1 Light",
+				"description": "Primary accent color (lighter shade) - purple by default.",
+				"type": "color",
+				"default": "hsl(285, 46%, 56%)"
+			},
+			{
+				"key": "ACCENT1_DARK",
+				"name": "Accent 1 Dark",
+				"description": "Primary accent color (darker shade).",
+				"type": "color",
+				"default": "hsl(285, 35%, 21%)"
+			},
+			{
+				"key": "ACCENT2_LIGHT",
+				"name": "Accent 2 Light",
+				"description": "Secondary accent color (lighter shade) - blue by default.",
+				"type": "color",
+				"default": "hsl(195, 100%, 43%)"
+			},
+			{
+				"key": "ACCENT2_DARK",
+				"name": "Accent 2 Dark",
+				"description": "Secondary accent color (darker shade).",
+				"type": "color",
+				"default": "hsl(195, 100%, 16%)"
+			},
+			{
+				"key": "REMOVE_BLUR",
+				"name": "Remove Backdrop Blur",
+				"description": "Disables blur effects for better performance on low-end devices.",
+				"type": "boolean",
+				"default": "false"
+			},
+			{
+				"key": "REMOVE_SCROLL_FADE",
+				"name": "Remove Scroll Fade",
+				"description": "Removes the gradient fade effect on scrollable containers.",
+				"type": "boolean",
+				"default": "false"
+			},
+			{
+				"key": "HORIZONTAL_MY_MEDIA",
+				"name": "Horizontal My Media",
+				"description": "Restores the horizontal scrolling layout for the My Media section.",
+				"type": "boolean",
+				"default": "false"
+			},
+			{
+				"key": "VIDEO_THEME_BLUR",
+				"name": "Video Player Theme Blur",
+				"description": "Applies blur effect to video player backgrounds. May impact performance.",
+				"type": "boolean",
+				"default": "false"
+			}
+		],
+		"addons": [
+			{
+				"id": "remove-blur",
+				"name": "Remove Backdrop Blur",
+				"description": "Disables all backdrop-filter blur effects for improved performance.",
+				"cssUrl": "https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/improvePerformance/removeBackdropFilter.css",
+				"triggerVar": "REMOVE_BLUR"
+			},
+			{
+				"id": "remove-scroll-fade",
+				"name": "Remove Scroll Fade",
+				"description": "Removes mask-image fade effects on scrollable containers.",
+				"cssUrl": "https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/improvePerformance/removeFadingScroll.css",
+				"triggerVar": "REMOVE_SCROLL_FADE"
+			},
+			{
+				"id": "horizontal-my-media",
+				"name": "Horizontal My Media",
+				"description": "Restores horizontal scrolling for the My Media section on the home page.",
+				"cssUrl": "https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/horizontalMyMedia.css",
+				"triggerVar": "HORIZONTAL_MY_MEDIA"
+			},
+			{
+				"id": "video-theme-blur",
+				"name": "Video Player Blur",
+				"description": "Applies backdrop blur to the video player background.",
+				"cssUrl": "https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/addons/videoThemeBlur.css",
+				"triggerVar": "VIDEO_THEME_BLUR"
+			}
+		]
+	}
+]

@@ -1,12 +1,14 @@
 /** @format */
 
 @use "../abstract/variables" as *;
+
 :not(.dashboardDocument) .mainDrawer {
 	background: rgb(0 0 0 / 0.5);
 	backdrop-filter: blur(0);
 
 	&.drawer-open {
 		backdrop-filter: blur($filter-blur-default + 10px);
+
 		.scrollContainer {
 			mask-image: linear-gradient(
 				to top,
@@ -14,14 +16,9 @@
 				black 0.5em calc(100% - 0.5em),
 				transparent
 			);
-			-webkit-mask-image: linear-gradient(
-				to top,
-				transparent,
-				black 0.5em calc(100% - 0.5em),
-				transparent
-			);
 		}
 	}
+
 	.navMenuOption {
 		&::after {
 			content: "";
@@ -35,16 +32,20 @@
 			opacity: 0;
 			transition: opacity $transition-time-fast-1 linear;
 		}
+
 		.navMenuOptionIcon {
 			transition: margin-right $transition-time-fast-1 linear;
 		}
+
 		&-selected {
 			background: $gradient-default-inverted !important;
 		}
+
 		&:hover {
 			.navMenuOptionIcon {
 				margin-right: 1.46em;
 			}
+
 			&::after {
 				opacity: 1;
 			}

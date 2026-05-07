@@ -1,23 +1,24 @@
 /** @format */
 
-@use "../abstract/variables" as *;
+@use "./variables" as *;
 
 @mixin actorCard($type) {
 	height: auto;
+
 	.card {
 		&Padder-overflowPortrait {
-			// padding-bottom: 100% !important;
 			.cardImageIcon {
 				color: transparent !important;
 			}
 		}
+
 		&Box {
 			position: relative;
 		}
+
 		&Overlay {
 			&Container {
 				background: transparent !important;
-				// height: calc(100% - 2.825em);
 				z-index: 3;
 			}
 
@@ -26,12 +27,15 @@
 				bottom: 0.5em;
 			}
 		}
+
 		&Content {
 			filter: brightness(1);
 			transition: filter $transition-time-default ease-in-out;
 		}
+
 		&Scalable {
 			height: auto;
+
 			&::after {
 				content: "";
 				position: absolute;
@@ -46,12 +50,10 @@
 					transparent
 				);
 			}
+
 			.cardImageContainer::after {
 				background-size: cover;
 			}
-		}
-		&Text {
-			
 		}
 	}
 }
@@ -60,12 +62,12 @@
 	color: transparent;
 	background: $gradient-default;
 	background-clip: text;
-	-webkit-background-clip: text;
 }
 
 @mixin indicator() {
 	top: 0 !important;
 	right: 0 !important;
+
 	.indicator {
 		border-radius: 0 0 0 $rounding-default;
 		background: $gradient-default;

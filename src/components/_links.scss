@@ -1,12 +1,15 @@
 /** @format */
 @use "../abstract/variables" as *;
+
 a[is="emby-linkbutton"]:not(.listItem-border, .navMenuOption) {
 	position: relative;
 	margin-bottom: 0.3em;
 	text-decoration: none !important;
+
 	&.button-link {
 		color: $jf-blue-light;
 	}
+
 	&::after {
 		content: "" !important;
 		position: absolute;
@@ -14,11 +17,12 @@ a[is="emby-linkbutton"]:not(.listItem-border, .navMenuOption) {
 		bottom: -0.1em;
 		width: 100%;
 		height: 0.1em;
-		background: currentColor;
+		background: currentcolor;
 		transform-origin: right;
 		transform: scale(0);
 		transition: transform $transition-time-fast-1 ease-in-out;
 	}
+
 	&:hover::after {
 		transform-origin: left;
 		transform: scale(1);
