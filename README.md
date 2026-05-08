@@ -1,9 +1,11 @@
 # JellySkin
 
-### over engineered css theme for Jellyfin
-  
+### vibrant, modern CSS theme for Jellyfin — maintained by [LuppoDev](https://linktr.ee/aluppidev)
+   
 ![npm (tag)](https://img.shields.io/npm/v/@luppodev/jellyskin/latest?style=for-the-badge) ![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hm/@luppodev/jellyskin?label=Downloads&style=for-the-badge) ![GitHub](https://img.shields.io/github/license/luppodev/JellySkin?style=for-the-badge)\
 ![GitHub Repo stars](https://img.shields.io/github/stars/luppodev/JellySkin?style=social)
+
+> JellySkin is a modern, vibrant CSS theme for Jellyfin. Originally created by [prayag17](https://github.com/prayag17), now actively maintained by **LuppoDev** with continued improvements, fluid typography, and JellyFrame support.
 
 # ℹ️ Usage
 
@@ -117,19 +119,19 @@ Applies the blur effect to video player backgrounds.
 # 💻 Screenshots
 
 ### Login Page
-![Login_Page](https://github.com/prayag17/JellySkin/assets/55829513/9ca0d0c2-9ada-4e41-93b9-e4281be20d1d)
+![Login_Page](https://github.com/luppodev/JellySkin/assets/55829513/9ca0d0c2-9ada-4e41-93b9-e4281be20d1d)
 
 ### Home Screen
-![Home page](https://github.com/prayag17/JellySkin/assets/55829513/075d844b-ca43-4f61-b54a-cb75110e77ed)
+![Home page](https://github.com/luppodev/JellySkin/assets/55829513/075d844b-ca43-4f61-b54a-cb75110e77ed)
 
 ### Library
-![Library](https://github.com/prayag17/JellySkin/assets/55829513/c3ef8e48-df17-44f0-9708-e10dfa448237)
+![Library](https://github.com/luppodev/JellySkin/assets/55829513/c3ef8e48-df17-44f0-9708-e10dfa448237)
 
 ### Title Screen
-![Title page](https://github.com/prayag17/JellySkin/assets/55829513/270bb0bb-a755-449d-a57d-9da4e31d6082)
+![Title page](https://github.com/luppodev/JellySkin/assets/55829513/270bb0bb-a755-449d-a57d-9da4e31d6082)
 
 ### Episodes List
-![Episodes](https://github.com/prayag17/JellySkin/assets/55829513/eaded068-5930-47fd-b5d0-03cf89e1da44)
+![Episodes](https://github.com/luppodev/JellySkin/assets/55829513/eaded068-5930-47fd-b5d0-03cf89e1da44)
 
 ---
 

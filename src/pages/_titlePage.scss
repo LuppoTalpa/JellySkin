@@ -42,7 +42,7 @@
 	.infoWrapper {
 		display: grid;
 		grid-template:
-			"img text" 1fr "img info" auto "img info" auto / var(--card-width) 1fr;
+			"img text" 1fr "img info" auto "img info" auto / var(--card-width) minmax(0, 1fr);
 		gap: 1em 2em;
 		flex: unset !important;
 		align-items: end;
